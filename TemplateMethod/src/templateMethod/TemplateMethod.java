@@ -1,7 +1,10 @@
 
-package padraostrategy;
+package templateMethod;
 
-public class PadraoStrategy {
+
+import templateMethod.ProcessarBoletos;
+
+public class TemplateMethod {
 
    
     public static void main(String[] args) {
@@ -11,13 +14,14 @@ public class PadraoStrategy {
          
          
     ProcessarBoletos processador = new ProcessarBoletos();
-    processador.setLerArquivo(ProcessarBoletos::lerBancoBrasil);
+    processador.setLeituraRetorno(new LeituraRetornoBB());
         processador.processar(nomeArquivoBB);
         
          System.out.println("\n\n\n\n\n");
          
-     processador.setLerArquivo(ProcessarBoletos::lerBradesco);
+      processador.setLeituraRetorno(new LeituraRetornoBradesco());
         processador.processar(nomeArquivoBradesco);
+
         
     }
     
